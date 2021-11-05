@@ -1,0 +1,343 @@
+:root{
+    --white: #ffffff;
+    --deepBlue: #070724;
+    --lightBlue: #419EBB;
+    --blue: #2D68F0;
+    --cyan: #1EC1A2;
+    --darkGrey: #38384f;
+    --lightGrey: #838391;
+    --yellow: #EDA249;
+    --purple: #6D2ED5;
+    --darkOrange: #D14C32;
+    --lightOrange: #CD5120;
+    --red: #D83A34;
+    --borderColors:rgba(151, 151, 151, .5);
+}
+
+/*
+    font-family: 'Antonio', sans-serif;
+    font-family: 'Spartan', sans-serif;
+*/
+
+*, *::before, *::after{
+    box-sizing: border-box;
+}
+
+body{
+    margin:0;
+    background-color:var(--deepBlue);
+}
+
+p, h1, h2, h3{
+    color:var(--white);
+}
+
+p{
+    font-family: 'Spartan', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.75;
+}
+
+span{
+    font-family: 'Spartan', sans-serif;
+}
+
+.nav-container{
+    grid-area: nav-container;
+}
+
+.planet-container{
+    grid-area: planet-container;
+}
+
+.description-container{
+    grid-area: description-container;
+}
+
+.viewSelector-container{
+    grid-area: viewSelector-container;
+}
+
+.factBoxes-container{
+    grid-area: factboxes-container;
+}
+
+
+
+.grid-container{
+    width:auto;
+    max-width: 1300px;
+    padding: 0 .5rem;
+    margin-left: auto;
+    margin-right: auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: 
+        'nav-container'
+        'viewSelector-container'
+        'planet-container'
+        'description-container'
+        'factboxes-container';
+}
+
+@media(min-width:1200px){
+    .grid-container{
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 300px;
+        grid-template-areas: 
+        'planet-container planet-container description-container description-container'
+        'planet-container planet-container viewSelector-container viewSelector-container'
+        'factboxes-container factboxes-container factboxes-container factboxes-container';
+    }
+}
+
+header{
+    display: flow-root;
+    position:relative;
+    padding: 1.25rem 1.25rem;
+    border-bottom:.5px solid var(--borderColors);
+}
+
+header h1{
+    font-family: 'Antonio', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 500;
+    margin:0 0;
+}
+
+nav{
+    position:absolute;
+    top:100%;
+    width:100%;
+    background:var(--deepBlue);
+    left:0;
+    transition:transform 400ms ease-in-out;
+    transform-origin: top;
+    transform: scale(1, 0);
+}
+
+nav ul{
+    margin:0;
+    padding:0;
+    list-style: none;
+}
+
+nav li{
+    padding:1rem 0;
+    margin-left:1.15rem;
+    margin-right:1.15rem;
+    opacity:0;
+    transition:opacity 150ms ease-in-out;
+    color:var(--white);
+    display: flex;
+    align-items: center;
+}
+
+nav li:hover{
+    text-decoration: underline;
+}
+
+nav li > div{
+    height:20px;
+    width:20px;
+    background:white;
+    padding-top:.5rem;
+    border-radius: 50%;
+}
+
+nav li > span{
+    letter-spacing: .15rem;
+    text-transform: capitalize;
+    margin-left: 1rem;
+    font-weight: bold;
+}
+
+.mercuryIcon{
+    background-color: #DEF4FC;
+}
+
+.venusIcon{
+    background-color: #F7CC7F;
+}
+
+.earthIcon{
+    background-color: #545BFE;
+}
+
+.marsIcon{
+    background-color: #FF6A45;
+}
+
+.jupiterIcon{
+    background-color: #ECAD7A;
+}
+
+.saturnIcon{
+    background-color: #FCCB6B;
+}
+
+.uranusIcon{
+    background-color: #65F0D5;
+}
+
+.neptuneIcon{
+    background-color: #497EFA;
+}
+
+.navToggle:checked ~ nav{
+    transform: scale(1, 1);
+}
+
+.navToggle:checked ~ nav li{
+    opacity: 1;
+    transition:opacity 250ms ease-in-out 250ms;
+}
+
+.chevron{
+    margin-left:auto;
+    height:15px;
+}
+
+.navToggle{
+    display: none;
+}
+
+.navToggleLabel{
+    position:absolute;
+    top:0;
+    right:0;
+    margin-right:1em;
+    height:100%;
+    display:flex;
+    align-items: center;
+}
+
+.navToggleLabel span,
+.navToggleLabel span::before,
+.navToggleLabel span::after{
+    display:block;
+    background:var(--borderColors);
+    height:2px;
+    width:2em;
+    border-radius:2px;
+    position:relative;
+}
+
+.navToggleLabel:checked span,
+.navToggleLabel:checked span::before,
+.navToggleLabel:checked span::after{
+    background:var(--lightGrey);
+}
+
+.navToggleLabel span::before,
+.navToggleLabel span::after{
+    content:'';
+    position:absolute;
+}
+
+.navToggleLabel span::before{
+    bottom:7px;
+}
+
+.navToggleLabel span::after{
+    top:7px;
+}
+
+.viewSelector-container{
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+}
+
+.planet-container{
+    padding:4rem 0;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.planet-container img{
+    max-width: 50%;
+}
+
+.description-container{
+    text-align: center;
+}
+
+.description-container h2{
+    font-family: 'Antonio', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 500;
+}
+
+.sourceLink{
+    color: var(--borderColors);
+    font-weight: 400;
+    text-decoration: none;
+}
+
+.sourceLink > *{
+    font-family: 'Spartan', sans-serif;
+}
+
+.sourceLink > span{
+    font-weight: 700;
+    margin:0 .5rem;
+    text-decoration: underline;
+}
+
+.factBoxes{
+    margin-top:2rem;
+}
+
+.factBoxes > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding:1rem 1rem;
+    color:var(--borderColors);
+    border:1px solid var(--borderColors);
+    margin:.25rem 0;
+}
+
+.factBoxes p{
+    margin: 0;
+}
+
+.factData{
+    font-size:1.25rem;
+    font-weight:600;
+}
+
+@media(min-width:1200px){
+    .navIcons{
+        display:none;
+    }
+    .navToggleLabel{
+        display: none;
+    }
+
+    header{
+        display:grid;
+        grid-template-columns: 20% 80%;
+        padding:0 1rem;
+    }
+    nav{
+        all: unset;
+        display:flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
+
+    nav ul{
+        display:flex;
+    }
+    nav li{
+        opacity:1;
+        margin-bottom: 0;
+        font-size:.75rem;
+        
+    }
+}
