@@ -340,4 +340,39 @@ nav li > span{
         font-size:.75rem;
         
     }
+
+    .chevron{
+        display: none;
+    }
+
+    .description-container p{
+        padding: 0 5rem;
+        
+    }
+    .description-container a{
+        display: block;
+        margin-bottom:3rem;
+    }
+
+    .viewSelector-container{
+        flex-direction: column;
+        padding:0 5rem;
+    }
+    .viewSelector-container p{
+        height:75px;
+        text-align: center;
+        padding-top:1.45rem;
+        border:1px solid var(--borderColors);
+    }
+
+    .factBoxes{
+        display: flex;
+
+    }
+
+    .factBoxes div{
+        width:100%;
+        margin:0 .25rem;
+    }
+
 }
