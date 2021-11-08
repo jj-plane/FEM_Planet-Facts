@@ -112,6 +112,7 @@ nav{
     top:100%;
     width:100%;
     background:var(--deepBlue);
+    z-index: 1000;
     left:0;
     transition:transform 400ms ease-in-out;
     transform-origin: top;
@@ -158,32 +159,64 @@ nav li > span{
     background-color: #DEF4FC;
 }
 
+.active.Mercury{
+    border-bottom:1px solid #DEF4FC;
+}
+
 .venusIcon{
     background-color: #F7CC7F;
+}
+
+.active.Venus{
+    border-bottom:1px solid #F7CC7F;
 }
 
 .earthIcon{
     background-color: #545BFE;
 }
 
+.active.Earth{
+    border-bottom:1px solid #545BFE;
+}
+
 .marsIcon{
     background-color: #FF6A45;
+}
+
+.active.Mars{
+    border-bottom:1px solid #FF6A45;
 }
 
 .jupiterIcon{
     background-color: #ECAD7A;
 }
 
+.active.Jupiter{
+    border-bottom:1px solid #ECAD7A;
+}
+
 .saturnIcon{
     background-color: #FCCB6B;
+}
+
+.active.Saturn{
+    border-bottom:1px solid #FCCB6B;
 }
 
 .uranusIcon{
     background-color: #65F0D5;
 }
 
+.active.Uranus{
+    border-bottom:1px solid #65F0D5;
+}
+
 .neptuneIcon{
     background-color: #497EFA;
+}
+
+.active.Neptune{
+    border-bottom:1px solid #497EFA;
 }
 
 .navToggle:checked ~ nav{
@@ -256,6 +289,7 @@ nav li > span{
     display:flex;
     justify-content: center;
     align-items: center;
+    position:relative;
 }
 
 .planet-container img{
@@ -311,6 +345,12 @@ nav li > span{
     font-weight:600;
 }
 
+.surfaceImage{
+    position:absolute;
+    bottom:0;
+    max-width:25% !important;
+}
+
 @media(min-width:1200px){
     .navIcons{
         display:none;
@@ -341,8 +381,87 @@ nav li > span{
         
     }
 
+    nav li span{
+        margin-left: unset;
+    }
+
+    nav ul li{
+        border-top:1px solid transparent;
+    }
+
+    
+    nav ul li:nth-child(1):hover{
+        text-decoration: none;
+        border-top: 1px solid #DEF4FC;
+    }
+
+    nav ul li:nth-child(2):hover{
+        text-decoration: none;
+        border-top: 1px solid #F7CC7F;
+    }
+
+    nav ul li:nth-child(3):hover{
+        text-decoration: none;
+        border-top: 1px solid #545BFE;
+    }
+
+    nav ul li:nth-child(4):hover{
+        text-decoration: none;
+        border-top: 1px solid #FF6A45;
+    }
+
+    nav ul li:nth-child(5):hover{
+        text-decoration: none;
+        border-top: 1px solid #ECAD7A;
+    }
+
+    nav ul li:nth-child(6):hover{
+        text-decoration: none;
+        border-top: 1px solid #FCCB6B;
+    }
+
+    nav ul li:nth-child(7):hover{
+        text-decoration: none;
+        border-top: 1px solid #65F0D5;
+    }
+
+    nav ul li:nth-child(8):hover{
+        text-decoration: none;
+        border-top: 1px solid #497EFA;
+    }
+
+    .active.Mercury{
+        background-color: #DEF4FC;
+    }
+    .active.Venus{
+        background-color: #F7CC7F;
+    }
+    .active.Earth{
+        background-color: #545BFE;
+    }
+    .active.Mars{
+        background-color: #FF6A45;
+    }
+    .active.Jupiter{
+        background-color: #ECAD7A;
+    }
+    .active.Saturn{
+        background-color: #FCCB6B;
+    }
+    .active.Uranus{
+        background-color: #65F0D5;
+    }
+    .active.Neptune{
+        background-color: #497EFA;
+    }
+    
+
     .chevron{
         display: none;
+    }
+
+    .planet-container img{
+        max-width: 100%;
     }
 
     .description-container p{

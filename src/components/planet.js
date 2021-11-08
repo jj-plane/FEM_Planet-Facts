@@ -18,7 +18,10 @@ class Planet extends React.Component{
         }
         else if(this.props.view === 'surface'){
             return(
-                <img src={this.props.data.images.geology} alt='planet interal structure' />
+                <>
+                <img src={this.props.data.images.planet} alt='planet overview' />
+                <img className='surfaceImage' src={this.props.data.images.geology} alt='planet interal structure' />
+                </>
             )  
         }
         else{
