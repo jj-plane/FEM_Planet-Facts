@@ -1,11 +1,19 @@
 function ViewSelector(props){
     const currentView = props.currentView;
-    console.log(props);
     return(
         <>
-            <p id="overview" className={currentView === 'overview' ? `active ${props.currentPlanet.name}`: ''} onClick={props.update}>Overview</p>
-            <p id="internal" className={currentView === 'internal' ? `active ${props.currentPlanet.name}`: ''} onClick={props.update}>Internal Stucture</p>
-            <p id="surface" className={currentView === 'surface' ? `active ${props.currentPlanet.name}`: ''} onClick={props.update}>Surface geology</p>
+            <div id="overview" className={currentView === 'overview' ? `active ${props.currentPlanet.name}`: ''} onClick={props.update}>
+                <span>01</span>
+                <p >Overview</p>
+            </div>
+            <div id="internal" className={currentView === 'internal' ? `active ${props.currentPlanet.name}`: ''} onClick={props.update}>
+                <span>02</span>
+                <p>Internal Stucture</p>
+            </div>
+            <div id="surface" className={currentView === 'surface' ? `active ${props.currentPlanet.name}`: ''} onClick={props.update}>
+                <span>03</span>
+                <p>Surface geology</p>
+            </div>
         </>
     )
 }

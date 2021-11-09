@@ -50,7 +50,6 @@ class App extends React.Component{
 
   handleNavigation(e){
     const index = parseInt(e.currentTarget.id);
-    console.log('navigation index: ',index)
     this.setState({
       currentSelection: this.state.data[index],
       currentView: 'overview'
@@ -59,7 +58,7 @@ class App extends React.Component{
   }
 
   updateView(e){
-    const view = e.target.id;
+    const view = e.currentTarget.id;
     this.setState({
       currentView : view.toString()
     })
